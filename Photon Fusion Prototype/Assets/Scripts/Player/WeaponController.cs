@@ -7,7 +7,7 @@ public class WeaponController : NetworkBehaviour
 {
     [SerializeField] private NetworkObject bullet;
     [SerializeField] private Player player;
-    private float spawnDistance = 2.0f;
+    private float spawnDistance = 0.5f;
     private bool isShooting;
     public override void FixedUpdateNetwork()
     {
@@ -21,11 +21,11 @@ public class WeaponController : NetworkBehaviour
     {
         if (!isShooting)
         {
-            Vector3 spawnPosition = transform.position + transform.forward * spawnDistance;
+            Vector3 spawnPosition = transform.position + new Vector3(0,0.7f,0) + transform.forward * spawnDistance;
             Runner.Spawn(bullet, spawnPosition, transform.rotation, Object.InputAuthority, (runner, obj) =>
             {
                 obj.GetComponent<Projectile>().InitializeFunc(player);
-                obj.transform.position += obj.transform.forward * 10;
+                obj.transform.position += obj.transform.forward;
             });
             StartCoroutine(ShootCoolDown());
         }

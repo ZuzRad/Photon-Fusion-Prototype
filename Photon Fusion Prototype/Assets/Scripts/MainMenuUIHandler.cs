@@ -29,7 +29,7 @@ public class MainMenuUIHandler : MonoBehaviour
         PlayerPrefs.SetString("PlayerNickname", nickField.text);
         PlayerPrefs.Save();
 
-        var operation = SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Additive);
+        var operation = SceneManager.LoadSceneAsync("DemoScene", LoadSceneMode.Additive);
         operation.completed += (s) =>
         {
             SceneManager.UnloadSceneAsync("MainMenu");

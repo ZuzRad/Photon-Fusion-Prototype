@@ -11,6 +11,7 @@ public class GameHandler : MonoBehaviour, ISingleton
 
     public void CreateRoom(string roomName)
     {
+        Cursor.visible = false;
         lobbyName = roomName;
         networkRunnerHandler.StartServer(roomName);
     }

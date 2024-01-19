@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Projectile : NetworkBehaviour
 {
-    [SerializeField] private float speed = 100f;
+    [SerializeField] private float speed = 50f;
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private float force = 1000f;
+    [SerializeField] private float force = 50f;
     private Player parent;
     private TickTimer expiredTime = TickTimer.None;
 

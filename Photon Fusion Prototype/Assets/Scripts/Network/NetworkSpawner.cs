@@ -38,7 +38,7 @@ public class NetworkSpawner : SimulationBehaviour, INetworkRunnerCallbacks
         {
             Debug.Log(runner + "  " + player);
             Debug.Log("OnPlayerJoined we are server. Spawning player");
-            runner.Spawn(playerPrefab, Vector3.zero, Quaternion.identity, player);
+            runner.Spawn(playerPrefab, new Vector3(-324,58,10), Quaternion.identity, player);
         }
     }
 
