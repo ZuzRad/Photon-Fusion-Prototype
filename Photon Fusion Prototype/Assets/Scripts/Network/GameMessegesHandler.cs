@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameMessegesHandler : MonoBehaviour
 {
     public TextMeshProUGUI[] rpcMessages;
-   // [SerializeField] TableUI table;
+    [SerializeField] PlayerUIController uiController;
     Queue messageQueue = new Queue();
 
     public void OnGameMessegeReceived(string messege)
@@ -30,6 +30,6 @@ public class GameMessegesHandler : MonoBehaviour
 
     public void OnPingReceived(int index, double ping)
     {
-      //  table.SetPing(index, ping);
+        uiController.SetPing(index, ping);
     }
 }

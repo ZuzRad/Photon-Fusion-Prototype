@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
 using TMPro;
+using Unity.VisualScripting;
 
 public class NetworkPlayer : NetworkBehaviour, IPlayerLeft
 {
@@ -36,6 +37,9 @@ public class NetworkPlayer : NetworkBehaviour, IPlayerLeft
             Debug.Log("Spawned remote player");
             playerO.localUI.SetActive(false);
         }
+        List<Player> players = Singleton<GameHandler>.instance.players;
+        players.Add(playerO);
+        playerO.index = players.IndexOf(playerO);
 
         transform.name = $"P_{Object.Id}";
         Runner.SetPlayerObject(Object.InputAuthority, Object);
@@ -61,6 +65,7 @@ public class NetworkPlayer : NetworkBehaviour, IPlayerLeft
 
         if (player == Object.InputAuthority)
         {
+            Singleton<GameHandler>.instance.players.Remove(playerO);
             Runner.Despawn(Object);
         }
     }
@@ -91,10 +96,10 @@ public class NetworkPlayer : NetworkBehaviour, IPlayerLeft
 
 
     [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
-    public void RPC_SetWinner(string nickName, string points)
+    public void RPC_ShootMsg(string nickName)
     {
-        Debug.Log("RPC winner" + nickName);
-        netMesseges.SendInGameRPCMessage(nickName, " wins!");
+        Debug.Log(nickName+" was shot ");
+        netMesseges.SendInGameRPCMessage(nickName, " was shot ");
     }
 
 

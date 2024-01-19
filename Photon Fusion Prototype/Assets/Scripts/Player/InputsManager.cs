@@ -12,9 +12,9 @@ public class InputsManager : NetworkBehaviour, IPlayerInputProvider
 
     private InputAction forwardInput;
     private InputAction backwardInput;
-    private InputAction leftInput;
-    private InputAction rightInput;
     private InputAction rotateInput;
+    private InputAction fireInput;
+    private InputAction tabInput;
 
     private void Awake()
     {
@@ -23,9 +23,9 @@ public class InputsManager : NetworkBehaviour, IPlayerInputProvider
 
         forwardInput = actionMap.FindAction("Forward");
         backwardInput = actionMap.FindAction("Backward");
-        leftInput = actionMap.FindAction("Left");
-        rightInput = actionMap.FindAction("Right");
         rotateInput = actionMap.FindAction("Rotation");
+        fireInput = actionMap.FindAction("Fire");
+        tabInput = actionMap.FindAction("Tab");
     }
 
     public override void FixedUpdateNetwork()
@@ -37,9 +37,9 @@ public class InputsManager : NetworkBehaviour, IPlayerInputProvider
     {
         input.forward = forwardInput.ReadValue<float>();
         input.backward = backwardInput.ReadValue<float>();
-        input.left = leftInput.ReadValue<float>();
-        input.right = rightInput.ReadValue<float>();
         input.rotate = rotateInput.ReadValue<Vector2>();
+        input.fire = fireInput.IsPressed();
+        input.tab = tabInput.IsPressed();
     }
 
     public PlayerInputs GetInputs()

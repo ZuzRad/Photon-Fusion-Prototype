@@ -12,16 +12,21 @@ public class NetworkPlayerMovementHandler : NetworkBehaviour
 
     private void ShowTable(bool isPressed)
     {
-        //player.playerUIController.tableUI.gameObject.SetActive(isPressed);
+        player.UIController.gameObject.SetActive(isPressed);
     }
 
     public override void FixedUpdateNetwork()
     {
+        if (NetworkPlayer.Local == player.netPlayer)
+        {
+            player.netPlayer.RPC_SetPing(player.index, Runner.GetPlayerRtt(Runner.LocalPlayer));
+        }
+
         if (GetInput(out PlayerInputs networkInputData))
         {
             controller.inputs = networkInputData;
             controller.UpdatePosition(Runner.DeltaTime);
-            //ShowTable(networkInputData.Tab);
+            ShowTable(networkInputData.tab);
         }
     }
 }

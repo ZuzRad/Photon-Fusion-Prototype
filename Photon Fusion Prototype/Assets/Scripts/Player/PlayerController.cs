@@ -16,7 +16,7 @@ public class PlayerController : NetworkRigidbody
         float rotationAngle = mouseRotate * rotationSpeed * deltaTime;
         transform.Rotate(Vector3.up, rotationAngle);
 
-        Vector3 localMoveDirection = new Vector3(inputs.right - inputs.left, 0f, inputs.forward - inputs.backward).normalized;
+        Vector3 localMoveDirection = new Vector3(0f, 0f, inputs.forward - inputs.backward).normalized;
         Vector3 globalMoveDirection = transform.TransformDirection(localMoveDirection);
 
         Vector3 targetPosition = transform.position + deltaTime * moveSpeed * globalMoveDirection;

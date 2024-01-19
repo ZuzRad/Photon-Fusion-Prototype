@@ -7,8 +7,8 @@ public struct PlayerInputs : INetworkInput
 {
     public float forward;
     public float backward;
-    public float left;
-    public float right;
+    public bool fire;
+    public bool tab;
     public Vector3 rotate;
 
     public static PlayerInputs None => new PlayerInputs();
