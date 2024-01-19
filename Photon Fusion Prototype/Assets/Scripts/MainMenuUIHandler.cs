@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,6 @@ public class MainMenuUIHandler : MonoBehaviour
     [SerializeField] private TMP_InputField nickField;
     [SerializeField] private TMP_InputField roomField;
     [SerializeField] private GameObject mainMenuPanel;
-    [SerializeField] private GameObject networkPanel;
     [SerializeField] private GameObject loadingPanel;
     private void Start()
     {
@@ -33,13 +33,10 @@ public class MainMenuUIHandler : MonoBehaviour
         operation.completed += (s) =>
         {
             SceneManager.UnloadSceneAsync("MainMenu");
+            Singleton<GameHandler>.instance.CreateRoom(roomField.text);
         };
-        networkPanel.SetActive(false);
+        mainMenuPanel.SetActive(false);
         loadingPanel.SetActive(true);
     }
-    public void OnNetworkGameClicked()
-    {
-        networkPanel.SetActive(true);
-        mainMenuPanel.SetActive(false);
-    }
+
 }

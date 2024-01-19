@@ -14,10 +14,6 @@ public class NetworkRunnerHandler : MonoBehaviour
 
     private NetworkRunner networkRunner;
 
-    private void Start()
-    {
-        StartServer("test");
-    }
 
     public void StartServer(string sessionName)
     {

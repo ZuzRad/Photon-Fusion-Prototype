@@ -7,7 +7,7 @@ using TMPro;
 public class NetworkPlayer : NetworkBehaviour, IPlayerLeft
 {
     public static NetworkPlayer Local { get; set; }
-    public List<TextMeshProUGUI> playerNickNameTM;
+    public TextMeshProUGUI playerNickText;
 
     [Networked(OnChanged = nameof(OnNickNameChanged))]
     public NetworkString<_16> nickName { get; set; }
@@ -29,15 +29,21 @@ public class NetworkPlayer : NetworkBehaviour, IPlayerLeft
             Local = this;
             Debug.Log("Spawned local player");
             RPC_SetNickName(PlayerPrefs.GetString("PlayerNickname"));
+            EnableCamera();
         }
         else
         {
             Debug.Log("Spawned remote player");
+            playerO.localUI.SetActive(false);
         }
-        //PlayerPrefabConnector.Instance.ConnectPlayerScriptsNetwork(GetComponent<Player>(), Object.HasInputAuthority);
 
         transform.name = $"P_{Object.Id}";
         Runner.SetPlayerObject(Object.InputAuthority, Object);
+    }
+
+    private void EnableCamera()
+    {
+        playerO.mainCamera.enabled = true;
     }
 
     public void PlayerLeft(PlayerRef player)
@@ -55,7 +61,6 @@ public class NetworkPlayer : NetworkBehaviour, IPlayerLeft
 
         if (player == Object.InputAuthority)
         {
-           // PlayersManager.Instance.players.Remove(playerO);
             Runner.Despawn(Object);
         }
     }
@@ -68,14 +73,7 @@ public class NetworkPlayer : NetworkBehaviour, IPlayerLeft
     private void OnNickNameChanged()
     {
         Debug.Log("Nickname changed to " + nickName);
-        foreach( var playerNickText in playerNickNameTM)
-        {
-            playerNickText.text = nickName.ToString();
-            //if(playerNickNameTM.IndexOf(playerNickText) == playerO.index)
-            //{
-            //    playerNickText.gameObject.layer = 24;
-            //}
-        }
+        playerNickText.text = nickName.ToString();
     }
 
     [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
@@ -86,16 +84,9 @@ public class NetworkPlayer : NetworkBehaviour, IPlayerLeft
 
         if (!isPublicJoinMessageSent)
         {
-            //netMesseges.SendInGameRPCMessage(nickName, " joined");
+            netMesseges.SendInGameRPCMessage(nickName, " joined");
             isPublicJoinMessageSent = true;
         }
-    }
-
-    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
-    public void RPC_SendPoints(int index)
-    {
-        Debug.Log("RPC add points" + nickName);
-        netMesseges.SendPoints(index);
     }
 
 
@@ -106,20 +97,6 @@ public class NetworkPlayer : NetworkBehaviour, IPlayerLeft
         netMesseges.SendInGameRPCMessage(nickName, " wins!");
     }
 
-    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
-    public void RPC_SetGameWinner(string nickName)
-    {
-        Debug.Log("RPC game winner" + nickName);
-        netMesseges.SendInGameRPCMessage(nickName, " wins the entire game!");
-    }
-
-    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
-    public void RPC_SetReadyState(int index, bool isReady)
-    {
-        Debug.Log("RPC ready state " + nickName);
-        netMesseges.SendReadyState(index, isReady);
-
-    }
 
     [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
     public void RPC_SetPing(int index, double ping)

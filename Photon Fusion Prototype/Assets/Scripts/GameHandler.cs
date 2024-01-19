@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Unity.VisualScripting;
 
-public class GameHandler : MonoBehaviour
+[Singleton(Persistent = true, Automatic = true, HideFlags = HideFlags.None)]
+public class GameHandler : MonoBehaviour, ISingleton
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private NetworkRunnerHandler networkRunnerHandler;
+
+    public void CreateRoom(string roomName)
     {
-        
+        networkRunnerHandler.StartServer(roomName);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        Singleton<GameHandler>.Awake(this);
+    }
+
+    private void OnDestroy()
+    {
+        Singleton<GameHandler>.OnDestroy(this);
     }
 }

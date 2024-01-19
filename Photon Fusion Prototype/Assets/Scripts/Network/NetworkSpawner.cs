@@ -35,11 +35,10 @@ public class NetworkSpawner : SimulationBehaviour, INetworkRunnerCallbacks
     public void OnPlayerJoined(NetworkRunner runner, PlayerRef player) 
     {
         if (runner.IsServer)
-       {
+        {
             Debug.Log(runner + "  " + player);
             Debug.Log("OnPlayerJoined we are server. Spawning player");
             runner.Spawn(playerPrefab, Vector3.zero, Quaternion.identity, player);
-
         }
     }
 

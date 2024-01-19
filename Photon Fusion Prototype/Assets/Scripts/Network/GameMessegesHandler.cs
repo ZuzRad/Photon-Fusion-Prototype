@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameMessegesHandler : MonoBehaviour
 {
-    public TextMeshProUGUI[] textMeshes;
+    public TextMeshProUGUI[] rpcMessages;
    // [SerializeField] TableUI table;
     Queue messageQueue = new Queue();
 
@@ -23,20 +23,9 @@ public class GameMessegesHandler : MonoBehaviour
         foreach(string messageInQue in messageQueue)
         {
             Debug.Log(messageInQue);
-            textMeshes[queueIndex].text = messageInQue;
+            rpcMessages[queueIndex].text = messageInQue;
             queueIndex++;
         }
-    }
-
-
-    public void OnSetPointsReceived(int index)
-    {
-       // PlayersManager.Instance.gamePointsList[index]++;
-    }
-
-    public void OnReadyStateReceived(int index, bool isReady)
-    {
-      //  table.SetReady(index, isReady);
     }
 
     public void OnPingReceived(int index, double ping)

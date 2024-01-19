@@ -11,11 +11,9 @@ public class PlayerController : NetworkRigidbody
     public PlayerInputs inputs;
     public void UpdatePosition(float deltaTime)
     {
-
         float mouseRotate = (inputs.rotate.x / Screen.width) * 2 - 1;
 
         float rotationAngle = mouseRotate * rotationSpeed * deltaTime;
-        Debug.Log(inputs.rotate);
         transform.Rotate(Vector3.up, rotationAngle);
 
         Vector3 localMoveDirection = new Vector3(inputs.right - inputs.left, 0f, inputs.forward - inputs.backward).normalized;
