@@ -1,6 +1,7 @@
-# RUN OF ADVENTURE
+# Photon Fusion Prototype
 
-![roa1](https://user-images.githubusercontent.com/107064508/222847098-b46b4535-a03b-47bb-a79f-d05b970994c5.png)
+![screen-shot](https://github.com/ZuzRad/Photon-Fusion-Prototype/assets/107064508/c76c641e-a54e-4eb7-9320-8243f7746477)
+
 
 ## 📖 Table of Contents
 * [General Information](https://github.com/ZuzRad/Photon-Fusion-Prototype#-general-information)
