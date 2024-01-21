@@ -32,7 +32,7 @@ public class NetworkRunnerHandler : MonoBehaviour
 
         var clientTask = InitializeNetworkRunnerHostMigration(networkRunner, hostMigrationToken);
 
-        Debug.Log("Host migratiob started");
+        Debug.Log("Host migration started");
     }
 
     INetworkSceneManager GetSceneManager(NetworkRunner runner)

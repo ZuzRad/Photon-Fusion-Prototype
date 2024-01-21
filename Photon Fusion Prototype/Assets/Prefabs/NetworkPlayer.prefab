@@ -1647,6 +1647,7 @@ MonoBehaviour:
   UIController: {fileID: 6608577794797384615}
   index: 0
   netPlayer: {fileID: 5488382506932129084}
+  modelRenderer: {fileID: 4777599194594639331}
 --- !u!114 &6236870131319354107
 MonoBehaviour:
   m_ObjectHideFlags: 0

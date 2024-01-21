@@ -25,13 +25,10 @@ public class PlayerController : NetworkRigidbody
         float rotationAngleX = mouseRotateX * rotationSpeed * deltaTime;
         float rotationAngleY = mouseRotateY * pitchSpeed * deltaTime;
 
-        // Obracanie wokó³ osi Y (yaw) tylko postaci
         transform.Rotate(Vector3.up, rotationAngleX);
 
-        // Obracanie wokó³ osi X (pitch) tylko kamery
         currentPitch = Mathf.Clamp(currentPitch - rotationAngleY, minPitch, maxPitch);
 
-        // Obracanie kamery wokó³ osi X (pitch) z ograniczeniem
         cameraTransform.localRotation = Quaternion.Euler(currentPitch, 0f, 0f);
 
         Vector3 localMoveDirection = new Vector3(0f, 0f, inputs.forward - inputs.backward).normalized;

@@ -83,6 +83,17 @@
                 },
                 {
                     "name": "",
+                    "id": "b07c28c4-391c-45b7-8f13-3eb0819d7d27",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Forward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "5457f6e3-5339-408a-a2c7-199d3d43360d",
                     "path": "<Keyboard>/a",
                     "interactions": "",
@@ -96,6 +107,17 @@
                     "name": "",
                     "id": "78ce27ac-7459-4093-8759-d7b03c4499b5",
                     "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Backward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "07aeb9cf-c542-4a2e-a5a7-3ae62577c6d0",
+                    "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -127,6 +149,17 @@
                 },
                 {
                     "name": "",
+                    "id": "791a7ac5-6f8d-451d-9b2b-131967c90d06",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "66e05fcc-be86-477c-a9c6-961a2d8c908b",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -138,8 +171,30 @@
                 },
                 {
                     "name": "",
+                    "id": "33606e98-c440-4e8e-8454-5bae58b5974c",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b558da66-1e5e-4f25-ae6d-0e399e6142b0",
                     "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eaa456d8-52c5-4a43-83d4-2caa07ad4df3",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

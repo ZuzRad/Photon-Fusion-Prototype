@@ -10,4 +10,5 @@ public class Player : MonoBehaviour
     public PlayerUIController UIController;
     public int index;
     public NetworkPlayer netPlayer;
+    public Renderer modelRenderer;
 }

@@ -37,14 +37,21 @@ public class NetworkPlayer : NetworkBehaviour, IPlayerLeft
             Debug.Log("Spawned remote player");
             playerO.localUI.SetActive(false);
         }
-        List<Player> players = Singleton<GameHandler>.instance.players;
-        players.Add(playerO);
-        playerO.index = players.IndexOf(playerO);
+        ConnectPlayerVariables();
 
         transform.name = $"P_{Object.Id}";
         Runner.SetPlayerObject(Object.InputAuthority, Object);
     }
 
+    private void ConnectPlayerVariables()
+    {
+        List<Player> players = Singleton<GameHandler>.instance.players;
+        players.Add(playerO);
+        playerO.index = players.IndexOf(playerO);
+
+        Color randomColor = new Color(Random.value, Random.value, Random.value);
+        playerO.modelRenderer.material.SetColor("_Color", randomColor);
+    }
     private void EnableCamera()
     {
         playerO.mainCamera.enabled = true;
