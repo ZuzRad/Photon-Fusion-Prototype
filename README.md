@@ -40,13 +40,13 @@ List of features that the game includes.
 
 
 ## 🎮 Controls
-| Actions              | Button                       |
-|----------------------|------------------------------|
-| Move Forward         | W/Left Stick UP              |
-| Move Backward        | S/Left Stick Down            |
-| Rotation             | Mouse/Right Stick            |
-| Show table of players| Tab/Button West              |
-| Shot                 | Left Button Mouse/Button East|
+| Actions               | Button                         |
+|-----------------------|--------------------------------|
+| Move Forward          | W / Left Stick UP              |
+| Move Backward         | S / Left Stick Down            |
+| Rotation              | Mouse / Right Stick            |
+| Show table of players | Tab / Button West              |
+| Shot                  | Left Button Mouse / Button East|
 
 ## 🌱 Project Status
 Project completed
